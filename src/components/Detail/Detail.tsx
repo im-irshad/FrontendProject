@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCountry } from "../../redux/actions/countryActions";
 import { rootState } from "../../redux/reducers";
@@ -8,7 +8,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Container } from "@mui/material";
+import { Button, CardActionArea, Container } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
@@ -60,6 +60,8 @@ export default function Detail() {
                   <br />
                 </Typography>
               </CardContent>
+              <Link to={`/detail/images/${name}/`}> Images </Link>
+              <Button href="#text-buttons">Back</Button>
             </CardActionArea>
           </Card>
         </Container>

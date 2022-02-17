@@ -1,4 +1,4 @@
-import { AllActions } from "../../types";
+import { AllActions, Photo } from "../../types";
 import { Country } from "../../types";
 
 type InitialState = {
@@ -17,6 +17,7 @@ type InitialState = {
   popByAsc: Country[];
   popByDsc: Country[];
   regEurope: Country[];
+  photo: Photo[];
 };
 
 const initialState: InitialState = {
@@ -35,6 +36,7 @@ const initialState: InitialState = {
   popByAsc: [],
   popByDsc: [],
   regEurope: [],
+  photo: [],
 };
 export default function countryReducer(
   state = initialState,
@@ -46,8 +48,17 @@ export default function countryReducer(
         ...state,
         loading: false,
         countries: CountryActions.payload.countries,
+        filterCountry: CountryActions.payload.countries,
       };
     }
+    case "GET_PHOTOS": {
+      return {
+        ...state,
+        loading: false,
+        photo: CountryActions.payload.photo,
+      };
+    }
+
     case "SORTING_A_TO_Z": {
       return {
         ...state,

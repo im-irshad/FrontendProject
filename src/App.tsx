@@ -6,17 +6,10 @@ import MainPage from "./components/MainPage/MainPage";
 import Detail from "./components/Detail/Detail";
 import Favourite from "./components/Favourite/Favourite";
 import CountriesTable from "./components/CountriesTable/CountriesTable";
-import AlphaSort from "./components/Sorting/SortingByName/AlphaSort";
-import SortZA from "./components/Sorting/SortingByName/SortZA";
-import AreaDesc from "./components/Sorting/SortingByArea/AreaDesc";
-import AreaAsc from "./components/Sorting/SortingByArea/AreaAsc";
-import PopAsc from "./components/Sorting/SortingByPopulation/PopAsc";
-import PopDsc from "./components/Sorting/SortingByPopulation/PopDsc";
-import LangEng from "./components/Sorting/SortingByLanguage/LangEng";
-import RegionEuro from "./components/Sorting/SortingByRegion/RegionEuro";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { rootState } from "./redux/reducers";
+import CountryGallery from "./components/CountryGallery/CountryGallery";
 
 function App() {
   const { mode } = useSelector((state: rootState) => state.countryReducer);
@@ -28,6 +21,13 @@ function App() {
   const lightTheme = createTheme({
     palette: {
       mode: "light",
+      primary: {
+        main: "#3E497A",
+        contrastText: "#F1D00A",
+      },
+      background: {
+        paper: "#F0F0F0",
+      },
     },
   });
 
@@ -38,16 +38,9 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/detail/:name" element={<Detail />} />
+          <Route path="/detail/images/:name" element={<CountryGallery />} />
           <Route path="/favourite" element={<Favourite />} />
           <Route path="/allcountries" element={<CountriesTable />} />
-          <Route path="/sort" element={<AlphaSort />} />
-          <Route path="/sortr" element={<SortZA />} />
-          <Route path="/area-dsc" element={<AreaDesc />} />
-          <Route path="/area-asc" element={<AreaAsc />} />
-          <Route path="/pop-asc" element={<PopAsc />} />
-          <Route path="/pop-dsc" element={<PopDsc />} />
-          <Route path="/eng-lang" element={<LangEng />} />
-          <Route path="/euro-region" element={<RegionEuro />} />
         </Routes>
         <Footer />
       </BrowserRouter>

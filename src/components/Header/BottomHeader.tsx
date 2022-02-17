@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import AllCountriesMenu from "./MenuComponents/AllCountriesMenu";
 import AlphaWise from "./MenuComponents/AlphaWise";
 import AreaWise from "./MenuComponents/AreaWise";
-import LangWise from "./MenuComponents/LangWise";
+
 import PopWise from "./MenuComponents/PopWise";
 import RegionWise from "./MenuComponents/RegionWise";
 
@@ -17,7 +17,7 @@ export default function ButtonAppBar() {
           <AllCountriesMenu />
           <AlphaWise />
           <AreaWise />
-          <LangWise />
+
           <PopWise />
           <RegionWise />
         </Toolbar>

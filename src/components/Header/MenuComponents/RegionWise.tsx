@@ -24,7 +24,7 @@ export default function RegionWise() {
         onClick={handleClick}
         variant="contained"
       >
-        RegionWise
+        Sort: Region
       </Button>
       <Menu
         id="basic-menu"

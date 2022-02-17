@@ -12,11 +12,25 @@ export type Country = {
   region: string;
   area: number;
 };
+export type Photo = {
+  id: string;
+  description: string;
+  urls: {
+    regular: string;
+    small: string;
+    thumb: string;
+  };
+};
 
 type MyLang = {
   [key: string]: string;
 };
-
+type GetPhotos = {
+  type: "GET_PHOTOS";
+  payload: {
+    photo: Photo[];
+  };
+};
 type GetCountries = {
   type: "GET_COUNTRIES";
   payload: {
@@ -128,4 +142,5 @@ export type AllActions =
   | LangEng
   | AreaDsc
   | AreaAsc
+  | GetPhotos
   | RegionEuro;

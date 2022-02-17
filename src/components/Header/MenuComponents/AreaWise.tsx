@@ -16,7 +16,7 @@ export default function AreaWise() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const { loading, sorted, countries } = useSelector(
+  const { filterCountry, countries } = useSelector(
     (state: rootState) => state.countryReducer
   );
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function AreaWise() {
         onClick={handleClick}
         variant="contained"
       >
-        AreaWise
+        Sort By Area
       </Button>
       <Menu
         id="basic-menu"
@@ -43,23 +43,17 @@ export default function AreaWise() {
       >
         <MenuItem
           onClick={() => {
-            dispatch(areaAsc(countries));
+            dispatch(areaAsc(filterCountry));
           }}
         >
           Ascending Order
         </MenuItem>
         <MenuItem
           onClick={() => {
-            dispatch(areaDsc(countries));
+            dispatch(areaDsc(filterCountry));
           }}
         >
           Descending Order
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/area-asc">Ascending Order</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/area-dsc">Descending Order</Link>
         </MenuItem>
       </Menu>
     </div>

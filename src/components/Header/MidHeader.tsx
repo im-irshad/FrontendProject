@@ -90,7 +90,12 @@ export default function Header() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <Link to={"/"} className="mainHeading" color="primary">
+            <Link
+              to={"/"}
+              className="mainHeading"
+              color="primary"
+              style={{ textDecoration: "none", color: "#F1D00A" }}
+            >
               {" "}
               Rest Countries API
             </Link>
@@ -109,7 +114,10 @@ export default function Header() {
           </Search>
           <IconButton color="warning" size="large">
             <Badge badgeContent={favouriteCountry.length} color="secondary">
-              <Link to="favourite">
+              <Link
+                to="favourite"
+                style={{ textDecoration: "none", color: "#F1D00A" }}
+              >
                 <Favorite />{" "}
               </Link>
             </Badge>

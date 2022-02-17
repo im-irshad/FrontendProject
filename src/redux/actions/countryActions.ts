@@ -1,5 +1,5 @@
 import { Dispatch } from "redux";
-import { Country } from "../../types";
+import { Country, Photo } from "../../types";
 import { AllActions } from "../../types";
 
 export function darkMode(mode: Boolean): AllActions {
@@ -31,6 +31,15 @@ export function getCountries(countries: Country[]): AllActions {
     type: "GET_COUNTRIES",
     payload: {
       countries,
+    },
+  };
+}
+
+export function getPhotos(photo: Photo[]): AllActions {
+  return {
+    type: "GET_PHOTOS",
+    payload: {
+      photo,
     },
   };
 }
@@ -150,6 +159,20 @@ export function fetchCountry(name: string) {
       .then((response) => response.json())
       .then((data) => {
         dispatch(getCountry(data));
+      });
+  };
+}
+export function fetchPhoto(name: string) {
+  return (dispatch: Dispatch) => {
+    dispatch(loading1());
+    console.log(name);
+    fetch(
+      "https://api.unsplash.com/search/photos?client_id=xazkeuW_s0S0B1P0svuATYxxngYyhJfP8wUl-4Un-O8&query=" +
+        name
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(getPhotos(data.results));
       });
   };
 }

@@ -47,7 +47,7 @@ export default function Favourite() {
                 <TableCell>Languages</TableCell>
                 <TableCell>Population</TableCell>
                 <TableCell>Region</TableCell>
-                <TableCell>add to Favourtie</TableCell>
+                <TableCell>Remove: Favourtie</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -78,6 +78,8 @@ export default function Favourite() {
                   <TableCell>{country.region}</TableCell>
                   <TableCell>
                     <Checkbox
+                      checked
+                      sx={{ "& .MuiSvgIcon-root": { fontSize: 36 } }}
                       onClick={() => {
                         let check = favouriteCountry.includes(country);
                         if (!check) {

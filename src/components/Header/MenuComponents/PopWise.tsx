@@ -17,7 +17,9 @@ export default function PopWise() {
     setAnchorEl(null);
   };
   const dispatch = useDispatch();
-  const { countries } = useSelector((state: rootState) => state.countryReducer);
+  const { filterCountry } = useSelector(
+    (state: rootState) => state.countryReducer
+  );
   return (
     <div>
       <Button
@@ -28,7 +30,7 @@ export default function PopWise() {
         onClick={handleClick}
         variant="contained"
       >
-        PopulationWise
+        Sort: Population
       </Button>
       <Menu
         id="basic-menu"
@@ -41,23 +43,17 @@ export default function PopWise() {
       >
         <MenuItem
           onClick={() => {
-            dispatch(popAsc(countries));
+            dispatch(popAsc(filterCountry));
           }}
         >
           Ascending Order
         </MenuItem>
         <MenuItem
           onClick={() => {
-            dispatch(popDsc(countries));
+            dispatch(popDsc(filterCountry));
           }}
         >
           Descending Order
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/pop-asc">Ascending Order</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/pop-dsc">Descending Order</Link>
         </MenuItem>
       </Menu>
     </div>

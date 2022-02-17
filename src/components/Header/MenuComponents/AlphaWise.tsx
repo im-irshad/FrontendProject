@@ -20,7 +20,9 @@ export default function AlphaWise() {
     setAnchorEl(null);
   };
   const dispatch = useDispatch();
-  const { countries } = useSelector((state: rootState) => state.countryReducer);
+  const { countries, filterCountry } = useSelector(
+    (state: rootState) => state.countryReducer
+  );
   return (
     <div>
       <Button
@@ -31,7 +33,7 @@ export default function AlphaWise() {
         onClick={handleClick}
         variant="contained"
       >
-        Countries Alphabatically
+        Sort BY Name
       </Button>
       <Menu
         id="basic-menu"
@@ -44,23 +46,17 @@ export default function AlphaWise() {
       >
         <MenuItem
           onClick={() => {
-            dispatch(sortingAtoZ(countries));
+            dispatch(sortingAtoZ(filterCountry));
           }}
         >
           Sort A-Z
         </MenuItem>
         <MenuItem
           onClick={() => {
-            dispatch(sortingZtoA(countries));
+            dispatch(sortingZtoA(filterCountry));
           }}
         >
           Sort Z-A
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/sort">Sort A-Z</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/sortr">Sort Z-A</Link>
         </MenuItem>
       </Menu>
     </div>

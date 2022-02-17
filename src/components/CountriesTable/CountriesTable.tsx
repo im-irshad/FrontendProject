@@ -20,89 +20,26 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import { useEffect } from "react";
-
-type MyCountries = {
-  countries: Country[];
-};
+import TableC from "./TableC";
 
 export default function CountriesTable() {
   const { loading, countries, filterCountry } = useSelector(
-    (state: rootState) => state.countryReducer
-  );
-
-  const { favouriteCountry } = useSelector(
     (state: rootState) => state.countryReducer
   );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCountries());
   }, [dispatch]);
-
+  console.log("countries", countries);
+  console.log("filter country ", filterCountry);
   return (
     <div>
       {loading ? (
         <div>loading ...</div>
+      ) : filterCountry.length === 0 ? (
+        <TableC countries={countries} />
       ) : (
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Flag</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Capital City</TableCell>
-                <TableCell>Area</TableCell>
-                <TableCell>Languages</TableCell>
-                <TableCell>Population</TableCell>
-                <TableCell>Region</TableCell>
-                <TableCell>add to Favourtie</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {countries.map((country: Country) => (
-                <TableRow
-                  key={country.name.common}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell>
-                    <Avatar alt="country flags" src={country.flags.png} />
-                  </TableCell>
-                  <TableCell>
-                    <Link to={`/detail/${country.name.common}`}>
-                      {country.name.common}
-                    </Link>
-                  </TableCell>
-                  <TableCell>{country.capital}</TableCell>
-                  <TableCell>{country.area}</TableCell>
-                  <TableCell>
-                    {country.languages ? (
-                      Object.keys(country.languages).map((value, index) => (
-                        <p key={index}>{country.languages[value]}</p>
-                      ))
-                    ) : (
-                      <p>None</p>
-                    )}
-                  </TableCell>
-                  <TableCell>{country.population}</TableCell>
-                  <TableCell>{country.region}</TableCell>
-                  <TableCell>
-                    <Checkbox
-                      onClick={() => {
-                        let check = favouriteCountry.includes(country);
-                        if (!check) {
-                          dispatch(addToFavourite(country));
-                        } else {
-                          dispatch(removeFavourite(country));
-                        }
-                      }}
-                      icon={<FavoriteBorder />}
-                      checkedIcon={<Favorite />}
-                    />
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+        <TableC countries={filterCountry} />
       )}
     </div>
   );
