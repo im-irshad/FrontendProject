@@ -56,7 +56,10 @@ export default function TableC({ countries }: MyCountries) {
                   <Avatar alt="country flags" src={country.flags.png} />
                 </TableCell>
                 <TableCell>
-                  <Link to={`/detail/${country.name.common}`}>
+                  <Link
+                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    to={`/detail/${country.name.common}`}
+                  >
                     {country.name.common}
                   </Link>
                 </TableCell>

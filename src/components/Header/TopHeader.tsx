@@ -17,23 +17,25 @@ export default function TopHeader() {
       }}
     >
       <AppBar position="static">
-        <Toolbar sx={{ flexDirection: "row-reverse", color: "#F1D00A" }}>
+        <Toolbar sx={{ flexDirection: "row-reverse", color: "primary" }}>
+          <Tooltip title="Logout" color="inherit">
+            <IconButton>
+              <LogoutIcon />
+            </IconButton>
+          </Tooltip>
           <Tooltip title="Contact Us">
-            <ContactPageIcon />
+            <IconButton color="inherit">
+              <ContactPageIcon />
+            </IconButton>
           </Tooltip>
           <Tooltip title="About Us">
-            <IconButton>
+            <IconButton color="inherit">
               <InfoIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Login">
+          <Tooltip title="Login" color="inherit">
             <IconButton>
               <LoginIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Logout">
-            <IconButton>
-              <LogoutIcon />
             </IconButton>
           </Tooltip>
         </Toolbar>

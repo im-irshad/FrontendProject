@@ -10,12 +10,20 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { rootState } from "./redux/reducers";
 import CountryGallery from "./components/CountryGallery/CountryGallery";
+import { CssBaseline } from "@mui/material";
 
 function App() {
   const { mode } = useSelector((state: rootState) => state.countryReducer);
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
+      primary: {
+        main: "#3C415C",
+        contrastText: "#B4A5A5",
+      },
+      background: {
+        default: "#423F3E",
+      },
     },
   });
   const lightTheme = createTheme({
@@ -25,6 +33,12 @@ function App() {
         main: "#3E497A",
         contrastText: "#F1D00A",
       },
+      secondary: {
+        main: "#F0F0F0",
+      },
+      text: {
+        primary: "#3E497A",
+      },
       background: {
         paper: "#F0F0F0",
       },
@@ -33,6 +47,7 @@ function App() {
 
   return (
     <ThemeProvider theme={mode ? darkTheme : lightTheme}>
+      <CssBaseline />
       <BrowserRouter>
         <Header />
         <Routes>

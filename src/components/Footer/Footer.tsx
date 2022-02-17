@@ -21,7 +21,7 @@ export default function Footer() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            Copyright Integrify 2022
+            Copyright Irshad 2022
           </Typography>
           <Typography
             variant="body1"

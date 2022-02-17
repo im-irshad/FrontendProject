@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-import { getCountries } from "../../../redux/actions/countryActions";
 
 export default function AllCountriesMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

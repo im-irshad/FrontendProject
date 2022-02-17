@@ -12,12 +12,11 @@ import RegionWise from "./MenuComponents/RegionWise";
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ bgcolor: "white" }}>
+      <AppBar position="static" color="secondary">
         <Toolbar sx={{ display: "flex", justifyContent: "space-around" }}>
           <AllCountriesMenu />
           <AlphaWise />
           <AreaWise />
-
           <PopWise />
           <RegionWise />
         </Toolbar>

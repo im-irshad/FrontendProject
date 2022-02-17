@@ -2,11 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { rootState } from "../../redux/reducers";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  darkMode,
-  getCountries,
-  searchCountries,
-} from "../../redux/actions/countryActions";
+import { darkMode, searchCountries } from "../../redux/actions/countryActions";
 
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -21,7 +17,7 @@ import Favorite from "@mui/icons-material/Favorite";
 import { Badge } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -85,7 +81,7 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
@@ -93,8 +89,7 @@ export default function Header() {
             <Link
               to={"/"}
               className="mainHeading"
-              color="primary"
-              style={{ textDecoration: "none", color: "#F1D00A" }}
+              style={{ color: "inherit", textDecoration: "inherit" }}
             >
               {" "}
               Rest Countries API
@@ -112,22 +107,18 @@ export default function Header() {
               }}
             />
           </Search>
-          <IconButton color="warning" size="large">
+          <IconButton sx={{ mr: 1 }}>
             <Badge badgeContent={favouriteCountry.length} color="secondary">
               <Link
                 to="favourite"
-                style={{ textDecoration: "none", color: "#F1D00A" }}
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
                 <Favorite />{" "}
               </Link>
             </Badge>
           </IconButton>
           {theme.palette.mode} mode
-          <IconButton
-            sx={{ ml: 1 }}
-            onClick={() => dispatch(darkMode(true))}
-            color="inherit"
-          >
+          <IconButton onClick={() => dispatch(darkMode(true))} color="inherit">
             {theme.palette.mode === "dark" ? (
               <Brightness7Icon />
             ) : (

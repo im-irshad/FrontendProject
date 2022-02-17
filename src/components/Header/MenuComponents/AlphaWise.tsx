@@ -2,7 +2,6 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { rootState } from "../../../redux/reducers";
 import {
@@ -20,7 +19,7 @@ export default function AlphaWise() {
     setAnchorEl(null);
   };
   const dispatch = useDispatch();
-  const { countries, filterCountry } = useSelector(
+  const { filterCountry } = useSelector(
     (state: rootState) => state.countryReducer
   );
   return (
