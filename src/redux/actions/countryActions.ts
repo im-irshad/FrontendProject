@@ -168,7 +168,9 @@ export function fetchPhoto(name: string) {
     dispatch(loading1());
 
     return fetch(
-      "https://api.unsplash.com/search/photos?client_id=xazkeuW_s0S0B1P0svuATYxxngYyhJfP8wUl-4Un-O8&query=" +
+      "https://api.unsplash.com/search/photos?client_id=" +
+        process.env.REACT_APP_API_KEY +
+        "&query=" +
         name
     )
       .then((response) => response.json())
