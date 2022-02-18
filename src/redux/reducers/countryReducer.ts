@@ -149,8 +149,17 @@ export default function countryReducer(
     case "REGION_EURO": {
       return {
         ...state,
-        regEurope: CountryActions.payload.countries.filter((country) => {
-          return country.region === "Europe";
+        loading: false,
+        regEurope: CountryActions.payload.countries.sort((a, b) => {
+          var nameA = a.region.toUpperCase();
+          var nameB = b.region.toUpperCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
         }),
       };
     }

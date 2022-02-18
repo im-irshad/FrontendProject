@@ -9,14 +9,19 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+import { Link } from "react-router-dom";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
 const images = [
   {
     label: "Copenhagen, Denmark",
     imgPath:
       "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
+  },
+  {
+    label: "Helsinki, Finland",
+    imgPath:
+      "https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   },
   {
     label: "Hunza, Pakistan",
@@ -53,7 +58,8 @@ function SwipeableTextMobileStepper() {
   };
 
   return (
-    <Box sx={{ maxWidth: "100%", flexGrow: 1 }}>
+    <Box sx={{ maxWidth: "100%", flexGrow: 1, alignItems: "center" }}>
+      <Link to="/allcountries">Link</Link>
       <Paper
         square
         elevation={0}

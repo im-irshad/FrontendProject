@@ -3,6 +3,9 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
+import { regEuro } from "../../../redux/actions/countryActions";
+import { rootState } from "../../../redux/reducers";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function RegionWise() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -13,6 +16,10 @@ export default function RegionWise() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const dispatch = useDispatch();
+  const { filterCountry } = useSelector(
+    (state: rootState) => state.countryReducer
+  );
 
   return (
     <div>
@@ -35,13 +42,13 @@ export default function RegionWise() {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={handleClose}>Africa</MenuItem>
-        <MenuItem onClick={handleClose}>Americas</MenuItem>
-        <MenuItem onClick={handleClose}>Asia</MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link to="/euro-region">Europe</Link>
+        <MenuItem
+          onClick={() => {
+            dispatch(regEuro(filterCountry));
+          }}
+        >
+          A-Z
         </MenuItem>
-        <MenuItem onClick={handleClose}>Oceania</MenuItem>
       </Menu>
     </div>
   );

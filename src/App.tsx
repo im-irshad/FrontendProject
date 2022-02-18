@@ -2,18 +2,21 @@ import React from "react";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
-import MainPage from "./components/MainPage/MainPage";
+
 import Detail from "./components/Detail/Detail";
 import Favourite from "./components/Favourite/Favourite";
-import CountriesTable from "./components/CountriesTable/CountriesTable";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { rootState } from "./redux/reducers";
 import CountryGallery from "./components/CountryGallery/CountryGallery";
 import { CssBaseline } from "@mui/material";
+import MainTable from "./components/CountriesTable/MainTable";
+import LandingPage1 from "./components/LandingPage/LandingPage1";
 
 function App() {
-  const { mode } = useSelector((state: rootState) => state.countryReducer);
+  const { mode, filterCountry } = useSelector(
+    (state: rootState) => state.countryReducer
+  );
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
@@ -49,15 +52,16 @@ function App() {
     <ThemeProvider theme={mode ? darkTheme : lightTheme}>
       <CssBaseline />
       <BrowserRouter>
-        <Header />
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<LandingPage1 />} />
           <Route path="/detail/:name" element={<Detail />} />
           <Route path="/detail/images/:name" element={<CountryGallery />} />
           <Route path="/favourite" element={<Favourite />} />
-          <Route path="/allcountries" element={<CountriesTable />} />
+          <Route
+            path="/allcountries"
+            element={<MainTable countries={filterCountry} />}
+          />
         </Routes>
-        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

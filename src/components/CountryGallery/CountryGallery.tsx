@@ -12,34 +12,41 @@ export default function CountryGallery() {
   const dispatch = useDispatch();
   const history = useNavigate();
   const { name } = useParams();
-  useEffect(() => {
-    dispatch(fetchPhoto(name!));
-  }, [dispatch, name]);
-  const { photo } = useSelector((state: rootState) => state.countryReducer);
+  console.log(name);
+
+  const { loading1, photo } = useSelector(
+    (state: rootState) => state.countryReducer
+  );
   console.log(photo);
   return (
     <>
-      <Typography variant="h5" align="center" sx={{ mt: 3 }}>
-        {name}
-      </Typography>
-      <Button
-        size="small"
-        variant="contained"
-        onClick={() => history("/allcountries")}
-      >
-        Back
-      </Button>
-      <ImageList
-        sx={{ width: "80vw", height: "75vh", marginLeft: "8%" }}
-        cols={4}
-        rowHeight={164}
-      >
-        {photo.map((item) => (
-          <ImageListItem key={item.id}>
-            <img src={item.urls.small} alt="d" loading="lazy" />
-          </ImageListItem>
-        ))}
-      </ImageList>
+      {loading1 ? (
+        <div>loading....</div>
+      ) : (
+        <>
+          <Typography variant="h5" align="center" sx={{ mt: 3 }}>
+            {name}
+          </Typography>
+          <Button
+            size="small"
+            variant="contained"
+            onClick={() => history("/allcountries")}
+          >
+            Back
+          </Button>
+          <ImageList
+            sx={{ width: "80vw", height: "75vh", marginLeft: "8%" }}
+            cols={4}
+            rowHeight={164}
+          >
+            {photo.map((item) => (
+              <ImageListItem key={item.id}>
+                <img src={item.urls.small} alt="d" loading="lazy" />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        </>
+      )}
     </>
   );
 }

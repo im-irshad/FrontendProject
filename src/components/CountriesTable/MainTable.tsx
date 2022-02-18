@@ -6,7 +6,7 @@ import {
   removeFavourite,
 } from "../../redux/actions/countryActions";
 import { Country } from "../../types";
-import { rootState } from "../../redux/reducers/";
+import { rootState } from "../../redux/reducers";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -19,19 +19,25 @@ import { Avatar } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import { useEffect } from "react";
 
+import { useEffect } from "react";
+import Header from "../Header/Header";
 type MyCountries = {
   countries: Country[];
 };
 
-export default function TableC({ countries }: MyCountries) {
+export default function MainTable({ countries }: MyCountries) {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCountries());
+  }, [dispatch]);
   const { favouriteCountry } = useSelector(
     (state: rootState) => state.countryReducer
   );
   return (
     <div>
+      <Header />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -57,7 +63,7 @@ export default function TableC({ countries }: MyCountries) {
                 </TableCell>
                 <TableCell>
                   <Link
-                    style={{ color: "inherit", textDecoration: "inherit" }}
+                    //style={{ color: "inherit", textDecoration: "inherit" }}
                     to={`/detail/${country.name.common}`}
                   >
                     {country.name.common}

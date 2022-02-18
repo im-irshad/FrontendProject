@@ -163,16 +163,18 @@ export function fetchCountry(name: string) {
   };
 }
 export function fetchPhoto(name: string) {
+  console.log(name);
   return (dispatch: Dispatch) => {
     dispatch(loading1());
-    console.log(name);
-    fetch(
+
+    return fetch(
       "https://api.unsplash.com/search/photos?client_id=xazkeuW_s0S0B1P0svuATYxxngYyhJfP8wUl-4Un-O8&query=" +
         name
     )
       .then((response) => response.json())
       .then((data) => {
         dispatch(getPhotos(data.results));
+        console.log(data.results);
       });
   };
 }

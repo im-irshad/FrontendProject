@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCountry } from "../../redux/actions/countryActions";
+import { fetchCountry, fetchPhoto } from "../../redux/actions/countryActions";
 import { rootState } from "../../redux/reducers";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, Container } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import TopHeader from "../Header/TopHeader";
+import MidHeader from "../Header/MidHeader";
 const useStyles = makeStyles({
   media: {
     height: 250,
@@ -28,6 +31,9 @@ export default function Detail() {
   useEffect(() => {
     dispatch(fetchCountry(name!));
   }, [dispatch, name]);
+  useEffect(() => {
+    dispatch(fetchPhoto(name!));
+  }, [dispatch, name]);
 
   const { loading1, country } = useSelector(
     (state: rootState) => state.countryReducer
@@ -35,6 +41,8 @@ export default function Detail() {
 
   return (
     <div>
+      <TopHeader />
+      <MidHeader />
       {loading1 ? (
         <div>loading....</div>
       ) : (
@@ -86,6 +94,7 @@ export default function Detail() {
           </Card>
         </Container>
       )}
+      <Footer />
     </div>
   );
 }

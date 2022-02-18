@@ -110,8 +110,8 @@ export default function Header() {
           <IconButton sx={{ mr: 1 }}>
             <Badge badgeContent={favouriteCountry.length} color="secondary">
               <Link
-                to="favourite"
-                style={{ color: "inherit", textDecoration: "inherit" }}
+                to="/favourite"
+                style={{ color: "#F1D00A", textDecoration: "inherit" }}
               >
                 <Favorite />{" "}
               </Link>
