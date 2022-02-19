@@ -35,7 +35,7 @@ export default function MainTable({ countries }: MyCountries) {
     dispatch(fetchCountries());
   }, [dispatch]);
   const { favouriteCountry } = useSelector(
-    (state: rootState) => state.countryReducer
+    (state: rootState) => state.favouriteReducer
   );
   return (
     <div>

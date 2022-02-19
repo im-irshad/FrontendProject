@@ -22,6 +22,7 @@ export default function AlphaWise() {
   const { filterCountry } = useSelector(
     (state: rootState) => state.countryReducer
   );
+
   return (
     <div>
       <Button

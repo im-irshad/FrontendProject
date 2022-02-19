@@ -27,7 +27,7 @@ type MyCountries = {
 export default function Favourite() {
   const dispatch = useDispatch();
   const { favouriteCountry } = useSelector(
-    (state: rootState) => state.countryReducer
+    (state: rootState) => state.favouriteReducer
   );
 
   return (

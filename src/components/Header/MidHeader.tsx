@@ -66,8 +66,9 @@ export default function Header() {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { favouriteCountry } = useSelector(
-    (state: rootState) => state.countryReducer
+    (state: rootState) => state.favouriteReducer
   );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -90,10 +91,14 @@ export default function Header() {
             <Link
               to={"/"}
               className="mainHeading"
-              style={{ color: "inherit", textDecoration: "inherit" }}
+              style={{
+                color: "inherit",
+                textDecoration: "inherit",
+                fontFamily: "Montserrat",
+              }}
             >
               {" "}
-              Rest Countries API
+              Countries API
             </Link>
           </Typography>
           <Search>

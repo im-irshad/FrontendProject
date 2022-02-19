@@ -12,13 +12,13 @@ export default function CountryGallery() {
   const { name } = useParams();
   console.log(name);
 
-  const { loading1, photo } = useSelector(
-    (state: rootState) => state.countryReducer
+  const { loading, photo } = useSelector(
+    (state: rootState) => state.photoReducer
   );
   console.log(photo);
   return (
     <>
-      {loading1 ? (
+      {loading ? (
         <div>loading....</div>
       ) : (
         <>

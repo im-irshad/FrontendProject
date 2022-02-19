@@ -14,9 +14,12 @@ import MainTable from "./components/CountriesTable/MainTable";
 import LandingPage1 from "./components/LandingPage/LandingPage1";
 
 function App() {
-  const { mode, filterCountry } = useSelector(
+  const { filterCountry } = useSelector(
     (state: rootState) => state.countryReducer
   );
+  const { sorted } = useSelector((state: rootState) => state.sortingReducer);
+  const { mode } = useSelector((state: rootState) => state.themeReducer);
+  console.log(sorted);
   const darkTheme = createTheme({
     palette: {
       mode: "dark",
