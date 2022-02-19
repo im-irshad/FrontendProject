@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCountry } from "../../redux/actions/countryActions";
-import { rootState } from "../../redux/reducers";
-import { useNavigate } from "react-router-dom";
-
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, Container } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+
+import React, { useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCountry } from "../../redux/actions/countryActions";
+import { rootState } from "../../redux/reducers";
+import { useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import TopHeader from "../Header/TopHeader";
 import MidHeader from "../Header/MidHeader";
 import { fetchPhoto } from "../../redux/actions/photosActions";
+
 const useStyles = makeStyles({
   media: {
     height: 250,

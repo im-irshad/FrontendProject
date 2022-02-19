@@ -1,11 +1,10 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+
 import AllCountriesMenu from "./MenuComponents/AllCountriesMenu";
 import AlphaWise from "./MenuComponents/AlphaWise";
 import AreaWise from "./MenuComponents/AreaWise";
-
 import PopWise from "./MenuComponents/PopWise";
 import RegionWise from "./MenuComponents/RegionWise";
 

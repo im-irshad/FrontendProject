@@ -1,11 +1,12 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { rootState } from "../../redux/reducers";
 import Typography from "@mui/material/Typography";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import { Button } from "@mui/material";
+
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { rootState } from "../../redux/reducers";
 
 export default function CountryGallery() {
   const history = useNavigate();

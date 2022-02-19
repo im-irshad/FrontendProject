@@ -1,13 +1,14 @@
 import * as React from "react";
+import {
+  sortingAtoZ,
+  sortingZtoA,
+} from "../../../redux/actions/sortingActions";
+
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { rootState } from "../../../redux/reducers";
-import {
-  sortingAtoZ,
-  sortingZtoA,
-} from "../../../redux/actions/sortingActions";
 
 export default function AlphaWise() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

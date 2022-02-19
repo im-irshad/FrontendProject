@@ -1,8 +1,3 @@
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { Country } from "../../types";
-import { rootState } from "../../redux/reducers";
-
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,15 +9,16 @@ import { Avatar } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Country } from "../../types";
+import { rootState } from "../../redux/reducers";
 import Header from "../Header/Header";
 import {
   addToFavourite,
   removeFavourite,
 } from "../../redux/actions/favouriteActions";
-
-type MyCountries = {
-  countries: Country[];
-};
 
 export default function Favourite() {
   const dispatch = useDispatch();
