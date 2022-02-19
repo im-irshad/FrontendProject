@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import { Country } from "../../types";
 import { AllActions } from "../../types";
-import { loading, loading1 } from "./loadingActions";
+import { loading, loadingSingleCountry } from "./loadingActions";
 
 export function getCountries(countries: Country[]): AllActions {
   return {
@@ -41,7 +41,7 @@ export function fetchCountries() {
 
 export function fetchCountry(name: string) {
   return (dispatch: Dispatch) => {
-    dispatch(loading1());
+    dispatch(loadingSingleCountry());
     fetch("https://restcountries.com/v3.1/name/" + name)
       .then((response) => response.json())
       .then((data) => {

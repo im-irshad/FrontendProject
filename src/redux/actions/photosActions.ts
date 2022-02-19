@@ -1,7 +1,7 @@
 import { GET_PHOTOS } from "./actionConsts";
 import { AllActions } from "../../types";
 import { Photo } from "../../types";
-import { loading1 } from "./loadingActions";
+import { loadingSingleCountry } from "./loadingActions";
 import { Dispatch } from "redux";
 export function getPhotos(photo: Photo[]): AllActions {
   return {
@@ -15,7 +15,7 @@ export function getPhotos(photo: Photo[]): AllActions {
 export function fetchPhoto(name: string) {
   console.log(name);
   return (dispatch: Dispatch) => {
-    dispatch(loading1());
+    dispatch(loadingSingleCountry());
 
     return fetch(
       "https://api.unsplash.com/search/photos?client_id=" +

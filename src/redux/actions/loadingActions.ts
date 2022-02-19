@@ -6,7 +6,7 @@ export function loading(): AllActions {
     type: LOADING,
   };
 }
-export function loading1(): AllActions {
+export function loadingSingleCountry(): AllActions {
   return {
     type: LOADING,
   };
