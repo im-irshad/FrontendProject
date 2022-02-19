@@ -7,7 +7,7 @@ import { rootState } from "../../../redux/reducers";
 import {
   sortingAtoZ,
   sortingZtoA,
-} from "../../../redux/actions/countryActions";
+} from "../../../redux/actions/sortingActions";
 
 export default function AlphaWise() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

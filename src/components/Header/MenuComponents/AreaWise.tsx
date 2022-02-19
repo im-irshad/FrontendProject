@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
 import { rootState } from "../../../redux/reducers";
-import { areaAsc, areaDsc } from "../../../redux/actions/countryActions";
+import { areaAsc, areaDsc } from "../../../redux/actions/sortingActions";
 
 export default function AreaWise() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

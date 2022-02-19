@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToFavourite,
-  areaAsc,
-  fetchCountries,
-  removeFavourite,
-} from "../../redux/actions/countryActions";
 import { Country } from "../../types";
 import { rootState } from "../../redux/reducers";
 
@@ -20,8 +14,11 @@ import { Avatar } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
-import { useEffect } from "react";
 import Header from "../Header/Header";
+import {
+  addToFavourite,
+  removeFavourite,
+} from "../../redux/actions/favouriteActions";
 
 type MyCountries = {
   countries: Country[];
@@ -29,7 +26,7 @@ type MyCountries = {
 
 export default function Favourite() {
   const dispatch = useDispatch();
-  const { loading, favouriteCountry } = useSelector(
+  const { favouriteCountry } = useSelector(
     (state: rootState) => state.countryReducer
   );
 

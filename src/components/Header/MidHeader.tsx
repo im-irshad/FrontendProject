@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { rootState } from "../../redux/reducers";
 import { useDispatch, useSelector } from "react-redux";
-import { darkMode, searchCountries } from "../../redux/actions/countryActions";
+import { searchCountries } from "../../redux/actions/countryActions";
 
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -18,6 +18,7 @@ import { Badge } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useTheme } from "@mui/material/styles";
+import { darkMode } from "../../redux/actions/themeActions";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

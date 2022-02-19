@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addToFavourite,
-  fetchCountries,
-  removeFavourite,
-} from "../../redux/actions/countryActions";
+
 import { Country } from "../../types";
 import { rootState } from "../../redux/reducers";
 
@@ -22,6 +18,12 @@ import Favorite from "@mui/icons-material/Favorite";
 
 import { useEffect } from "react";
 import Header from "../Header/Header";
+import { fetchCountries } from "../../redux/actions/countryActions";
+import {
+  addToFavourite,
+  removeFavourite,
+} from "../../redux/actions/favouriteActions";
+
 type MyCountries = {
   countries: Country[];
 };

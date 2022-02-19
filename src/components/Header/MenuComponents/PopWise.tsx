@@ -3,8 +3,8 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useDispatch, useSelector } from "react-redux";
-import { popAsc, popDsc } from "../../../redux/actions/countryActions";
 import { rootState } from "../../../redux/reducers";
+import { popAsc, popDsc } from "../../../redux/actions/sortingActions";
 
 export default function PopWise() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

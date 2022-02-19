@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPhoto } from "../../redux/actions/countryActions";
+import { useSelector } from "react-redux";
 import { rootState } from "../../redux/reducers";
 import Typography from "@mui/material/Typography";
 import ImageList from "@mui/material/ImageList";
@@ -9,7 +8,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { Button } from "@mui/material";
 
 export default function CountryGallery() {
-  const dispatch = useDispatch();
   const history = useNavigate();
   const { name } = useParams();
   console.log(name);
